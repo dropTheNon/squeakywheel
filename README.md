@@ -1,5 +1,5 @@
-# DAY ONE
-$ asdasda
+# Planning Phase
+
  * White Board http://imgur.com/a/VyDJ8
 
 # README
