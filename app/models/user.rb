@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_and_belongs_to_many :complaints
 
+  has_secure_password
+
   validates :password,
   length: { in: 8..72 },
   on: :create
@@ -14,5 +16,7 @@ class User < ApplicationRecord
   email: true,
   on: :create
 
-  has_secure_password
+  def self.authenticate(params)
+    User.find_by_email(params[:email]).try(:authenticate, params[:password])
+  end
 end
