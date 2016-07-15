@@ -1,6 +1,9 @@
-# DAY ONE
-$ asdasda
- * White Board http://imgur.com/a/VyDJ8
+# Whiteboard planning
+
+ * General wireframing whiteboarding
+ * http://imgur.com/a/VyDJ8
+ * Routes
+ * http://imgur.com/iuWvJSL
 
 # README
 

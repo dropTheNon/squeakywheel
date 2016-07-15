@@ -1,4 +1,7 @@
+# Ignoring database files due to Linux/OSX third party postgreSQL differences
+
 /config/database.yml
+config/database.yml
 
 # Created by https://www.gitignore.io/api/osx,linux
 
