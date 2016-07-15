@@ -5,8 +5,8 @@
 
     <%= f.text_area :description %>
 
-    <%= f.text_field :screenshot %>
-
+    <%= f.file_field :screenshot %>
+    
     <%= f.number_field :company_id %>
 
     <%= f.submit 'Create', class: 'btn btn-success'%>

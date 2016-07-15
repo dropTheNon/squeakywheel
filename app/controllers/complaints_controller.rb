@@ -3,21 +3,21 @@ class ComplaintsController < ApplicationController
   end
 
   def create
-    complaint = Complaint.new(complaint_params)
-    puts complaint.inspect
-    complaint.save
-    # render complaint.errors.messages
-    if complaint.save
-      redirect_to root_path
-    else
-      redirect_to complaint_new_path
+    if (params[:complaint][:screenshot])
+      uploaded_file = params[:complaint][:screenshot].path
+      cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+      params[:complaint][:screenshot] = cloudinary_file['public_id']
     end
+
+    Complaint.create(complaint_params)
+    redirect_to root_path
   end
 
   def edit
   end
 
   def update
+
   end
 
   def index
