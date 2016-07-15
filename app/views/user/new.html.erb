@@ -1,17 +1,14 @@
-<h1>Signup</h1>
+<div class="container">  
+  <h1>Signup</h1>
+  <%= bootstrap_form_for(:user) do |f| %>
+    <%= f.text_field :name %>
 
-<%= form_for(:user) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+    <%= f.email_field :email %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+    <%= f.password_field :password %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+    <%= f.password_field :password_confirmation %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit 'Signup' %>
-<% end %>
+    <%= f.submit 'Signup', class: 'btn btn-success' %>
+  <% end %>
+</div>

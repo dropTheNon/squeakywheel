@@ -1,17 +1,14 @@
-<h1>Create a Complaint</h1>
+<div class="container">
+  <h1>Create a Complaint</h1>
+  <%= bootstrap_form_for(:complaint) do |f| %>
+    <%= f.text_field :title %>
 
-<%= form_for(:complaint) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+    <%= f.text_area :description %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+    <%= f.file_field :screenshot %>
+    
+    <%= f.number_field :company_id %>
 
-  <%= f.label :screenshot %>
-  <%= f.file_field :screenshot %>
-
-  <%= f.label :company_id %>
-  <%= f.number_field :company_id %>
-
-  <%= f.submit 'Create' %>
-<% end %>
+    <%= f.submit 'Create', class: 'btn btn-success'%>
+  <% end %>
+</div>
