@@ -22,14 +22,14 @@ Rails.application.routes.draw do
   resources :company
 
   # Complain controller routes
-  # get 'new', to: 'complaints#new'
-  # post 'new', to: 'complaints#create'
+  get 'complaint/new', to: 'complaints#new'
+  post 'complaint/new', to: 'complaints#create'
   # get 'complaint/:id/edit', to: 'compalints#edit'
   # put 'complaint/:id/edit', to: 'complaints#update'
   # get 'complaints', to: 'complaints#index'
   # get 'complaint/:id', to: 'complaints#show'
   # put 'complaint/:id', to: 'complaints#vote'
-  resources :complaints
+  # resources :complaints
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

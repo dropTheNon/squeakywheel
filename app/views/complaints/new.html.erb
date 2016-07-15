@@ -1,2 +1,17 @@
-<h1>Complaints#new</h1>
-<p>Find me in app/views/complaints/new.html.erb</p>
+<h1>Create a Complaint</h1>
+
+<%= form_for(:complaint) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :screenshot %>
+  <%= f.text_field :screenshot %>
+
+  <%= f.label :company_id %>
+  <%= f.number_field :company_id %>
+
+  <%= f.submit 'Create' %>
+<% end %>
