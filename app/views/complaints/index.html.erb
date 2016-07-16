@@ -1,6 +1,6 @@
 <h1>Complaints</h1>
-<% complaints.each do |variable| %>
+<% @complaints.each do |variable| %>
 <%= variable.title =%>
 <%= variable.description =%>
-<%= cl_image_tag(variable.picture) %>
+<%= cl_image_tag(variable.screenshot) %>
 <% end %>
