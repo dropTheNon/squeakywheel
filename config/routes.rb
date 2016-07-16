@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'auth/failure'
+
 
   # Main controller routes for homepage
   root 'main#index'
@@ -37,6 +37,14 @@ Rails.application.routes.draw do
   # get 'complaint/:id', to: 'complaints#show'
   # put 'complaint/:id', to: 'complaints#vote'
   # resources :complaints
+
+  # Action mailer password reset
+  get 'auth/failure'
+
+  get 'reset' => 'passwords#new'
+  post 'reset' => 'passwords#create'
+  get 'reset/:code' => 'passwords#edit', as: :reset_code
+  put 'reset/:code' => 'passwords#update'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
