@@ -26,9 +26,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+# Email Validator
 gem 'email_validator'
-
+# OmniAuth
+gem 'omniauth'
+# Facebook OmniAuth
+gem 'omniauth-facebook'
 # image upload
 
 gem 'cloudinary'

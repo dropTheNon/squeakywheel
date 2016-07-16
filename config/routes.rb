@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  get 'auth/failure'
+
   # Main controller routes for homepage
   root 'main#index'
+
+  # Routes for OmniAuth-Facebook
+  get 'auth/:provider/callback', to: 'auth#callback'
+  get 'auth/failure', to: 'auth#failure'
+  get 'auth/logout', to: 'auth#logout'#, as: 'logout'
 
   # User controller routes
   get 'signup', to: 'user#new'
