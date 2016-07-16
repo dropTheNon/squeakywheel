@@ -1,2 +1,14 @@
-<h1>Complaints#edit</h1>
-<p>Find me in app/views/complaints/edit.html.erb</p>
+<div class="container">
+  <h1>Edit a Complaint</h1>
+  <%= bootstrap_form_for(:complaint) do |f| %>
+    <%= f.text_field :title %>
+
+    <%= f.text_area :description %>
+
+    <%= f.file_field :screenshot %>
+    
+    <%= f.number_field :company_id %>
+
+    <%= f.submit 'Create', class: 'btn btn-success'%>
+  <% end %>
+</div>

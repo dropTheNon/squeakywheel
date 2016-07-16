@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   post 'complaint/new', to: 'complaints#create'
   # get 'complaint/:id/edit', to: 'compalints#edit'
   # put 'complaint/:id/edit', to: 'complaints#update'
-  # get 'complaints', to: 'complaints#index'
+  get 'complaints', to: 'complaints#index'
   # get 'complaint/:id', to: 'complaints#show'
   # put 'complaint/:id', to: 'complaints#vote'
   # resources :complaints
