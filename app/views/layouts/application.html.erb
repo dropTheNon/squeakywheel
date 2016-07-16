@@ -38,17 +38,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Testing OmniAuth-Facebook login/logout -->
-    <% if @current_user %>
-    <%= @current_user.name %>
-    <%= @current_user.picture %>
-    <%= link_to('Logout', logout_path) %>
-    <% else %>
-    <%= link_to('Login with Facebook', '/auth/facebook') %>
-    <% end %>
-    <!-- End Testing OmniAuth-Facebook login/logout -->
-
     <%= yield %>
   </body>
 </html>

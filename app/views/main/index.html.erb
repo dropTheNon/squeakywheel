@@ -6,6 +6,16 @@
   </header>     
 </div><!-- /headerwrap -->
 
+<!-- Testing OmniAuth-Facebook login/logout -->
+  <% if @current_user %>
+    <%= @current_user.name %>
+    <%= @current_user.picture %>
+    <%= link_to('Logout', auth_logout_path) %>
+  <% else %>
+    <%= link_to('Login with Facebook', '/auth/facebook') %>
+  <% end %>
+<!-- End Testing OmniAuth-Facebook login/logout -->
+
 <!-- ==== GREYWRAP ==== -->
 <div id="greywrap">
   <div class="row">
