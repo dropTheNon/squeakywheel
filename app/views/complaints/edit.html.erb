@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Edit a Complaint</h1>
-  <%= bootstrap_form_for(:complaint) do |f| %>
+  <%= bootstrap_form_for(:complaint, method: :put) do |f| %>
     <%= f.text_field :title %>
 
     <%= f.text_area :description %>
@@ -9,6 +9,6 @@
     
     <%= f.number_field :company_id %>
 
-    <%= f.submit 'Create', class: 'btn btn-success'%>
+    <%= f.submit 'Update', class: 'btn btn-success'%>
   <% end %>
 </div>
