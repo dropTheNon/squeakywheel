@@ -1,6 +1,21 @@
-<h1>Complaints</h1>
-<% @complaints.each do |variable| %>
-<%= variable.title =%>
-<%= variable.description =%>
-<%= cl_image_tag(variable.screenshot) %>
-<% end %>
+<div class="container pad">
+  <h1>All Complaints</h1>
+  <div class="panel-group" id="accordion">
+    <% @complaints.each do |variable| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= variable.id %>"><strong><%= variable.title.upcase %> </strong><br>
+        </a>
+        </h4>
+      </div>
+      <div id="collapse<%= variable.id %>" class="panel-collapse collapse in">
+        <div class="panel-body">Description: <%= variable.description %> <br>
+          <%= cl_image_tag(variable.screenshot, :width=>300, :height=>300, :crop=>"scale") %>
+          <%= variable.vote_count %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

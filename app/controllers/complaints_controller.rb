@@ -10,7 +10,7 @@ class ComplaintsController < ApplicationController
     end
 
     Complaint.create(complaint_params)
-    redirect_to root_path
+    redirect_to complaints_path
   end
 
   def edit

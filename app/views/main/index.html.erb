@@ -3,21 +3,13 @@
 <header class="clearfix">
       <h1><span ></span></h1>
       <p>SqueakyWheel an app to help you provide feedback to corporations</p>
+      <%= link_to('Create Complaint', '/complaint/new', class: 'btn btn-primary marg', id: 'hero-btn') %>
+      <p id="scroll-icon" class="fa fa-chevron-down fa-2x"></p>
   </header>     
 </div><!-- /headerwrap -->
 
-<!-- Testing OmniAuth-Facebook login/logout -->
-  <% if @current_user %>
-    <%= @current_user.name %>
-    <%= @current_user.picture %>
-    <%= link_to('Logout', auth_logout_path) %>
-  <% else %>
-    <%= link_to('Login with Facebook', '/auth/facebook') %>
-  <% end %>
-<!-- End Testing OmniAuth-Facebook login/logout -->
-
 <!-- ==== GREYWRAP ==== -->
-<div id="greywrap" id="how" name="how">
+<div name="how" id="greywrap" >
   <div class="row">
     <h1 class="hiw">How It Works</h1>
     <div class="col-lg-4 callout">
@@ -50,6 +42,7 @@
     <div class="col-lg-6">
                   <p>Over the past four years, we’ve provided more than $1 million in combined cash and pro bono support to Way to Grow, an early childhood education and nonprofit organization. Other community giving involvement throughout our agency history includes pro bono work for more than 13 organizations, direct giving, a scholarship program through the Minneapolis College of Art & Design, board memberships, and ongoing participation in the Keystone Club, which gives five percent of our company’s earnings back to the community each year.</p>
                   </div><!-- col-lg-6 -->
+                  <%= link_to('All Complaints', '/complaints', class: 'btn btn-primary center-btn', id: 'center-btn') %>
                   </div><!-- row -->
                   </div><!-- container -->
                   <!-- ==== TEAM MEMBERS ==== -->
