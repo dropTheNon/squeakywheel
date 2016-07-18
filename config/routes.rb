@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+
+
   # Main controller routes for homepage
   root 'main#index'
+
+  # Routes for OmniAuth-Facebook
+  get 'auth/:provider/callback', to: 'auth#callback'
+  get 'auth/failure', to: 'auth#failure'
+  get 'auth/logout', to: 'auth#logout'#, as: 'logout'
 
   # User controller routes
   get 'signup', to: 'user#new'
@@ -26,10 +33,18 @@ Rails.application.routes.draw do
   post 'complaint/new', to: 'complaints#create'
   # get 'complaint/:id/edit', to: 'compalints#edit'
   # put 'complaint/:id/edit', to: 'complaints#update'
-  # get 'complaints', to: 'complaints#index'
+  get 'complaints', to: 'complaints#index'
   # get 'complaint/:id', to: 'complaints#show'
   # put 'complaint/:id', to: 'complaints#vote'
   # resources :complaints
+
+  # Action mailer password reset
+  get 'auth/failure'
+
+  get 'reset' => 'passwords#new'
+  post 'reset' => 'passwords#create'
+  get 'reset/:code' => 'passwords#edit', as: :reset_code
+  put 'reset/:code' => 'passwords#update'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

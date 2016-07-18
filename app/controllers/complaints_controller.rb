@@ -21,6 +21,7 @@ class ComplaintsController < ApplicationController
   end
 
   def index
+    @complaints = Complaint.all
   end
 
   def show

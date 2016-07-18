@@ -14,10 +14,9 @@
   </head>
 
   <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
-
     <div id="navbar-main">
       <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -38,8 +37,8 @@
       <li> <a <%= link_to('Logout', logout_path, method: :delete) %></a></li>
       <li> <a href="/complaint/new" class="smoothScroll cc">Create Complaint</a></li>
         </div><!--/.nav-collapse -->
+        </div>
       </div>
-    </div>
     </div>
     <%= yield %>
   </body>

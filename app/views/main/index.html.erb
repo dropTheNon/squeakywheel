@@ -1,10 +1,20 @@
 <!-- ==== HEADERWRAP ==== -->
-  <div id="headerwrap" id="home" name="home">
-  <header class="clearfix">
-        <h1><span ></span></h1>
-        <p>SqueakyWheel an app to help you provide feedback to corporations</p>
-    </header>     
-  </div><!-- /headerwrap -->
+<div id="headerwrap" id="home" name="home">
+<header class="clearfix">
+      <h1><span ></span></h1>
+      <p>SqueakyWheel an app to help you provide feedback to corporations</p>
+  </header>     
+</div><!-- /headerwrap -->
+
+<!-- Testing OmniAuth-Facebook login/logout -->
+  <% if @current_user %>
+    <%= @current_user.name %>
+    <%= @current_user.picture %>
+    <%= link_to('Logout', auth_logout_path) %>
+  <% else %>
+    <%= link_to('Login with Facebook', '/auth/facebook') %>
+  <% end %>
+<!-- End Testing OmniAuth-Facebook login/logout -->
 
 <!-- ==== GREYWRAP ==== -->
 <div id="greywrap" id="how" name="how">
@@ -15,22 +25,20 @@
       <h2>Create A Complaint</h2>
       <p>Easily create a complaint or feature request, and we ensure it gets to the team responsible for resolving your request.</p>
       </div><!-- col-lg-4 -->
-      
-      <div class="col-lg-4 callout">
+    <div class="col-lg-4 callout">
         <span class="fa fa-users fa-4x"></span>
         <h2>Get Backed Up</h2>
         <p>After you create a complaint our community of users will up vote your complaint or feature if they like it. For each up vote a complaint receives, we send a new email with a prepopulated description of the issue to the company.</p>
         </div><!-- col-lg-4 -->
-        
-        <div class="col-lg-4 callout">
-          <span class="fa fa-thumbs-up fa-4x"></span>
-          <h2>Up Vote</h2>
+    <div class="col-lg-4 callout">
+        <span class="fa fa-thumbs-up fa-4x"></span>
+      <h2>Up Vote</h2>
           <p>Back up other users in the community by up voting their complaints. This helps inform the company that multiple users are being affected by the issue, ideally helping them better prioritize which issues to resolve first.</p>
           </div><!-- col-lg-4 -->
           </div><!-- row -->
           </div><!-- greywrap -->
           <!-- ==== ABOUT ==== -->
-          <div class="container" id="about" name="about">
+<div class="container" id="about" name="about">
             <div class="row white">
               <br>
               <h1 class="centered">Top 10 Complaints</h1>
@@ -39,14 +47,13 @@
               <div class="col-lg-6">
                 <p>We believe ideas come from everyone, everywhere. In fact, at BlackTie, everyone within our agency walls is a designer in their own right. And there are a few principles we believe—and we believe everyone should believe—about our design craft. These truths drive us, motivate us, and ultimately help us redefine the power of design. We’re big believers in doing right by our neighbors. After all, we grew up in the Twin Cities and we believe this place has much to offer. So we do what we can to support the community we love.</p>
                 </div><!-- col-lg-6 -->
-                
-                <div class="col-lg-6">
+    <div class="col-lg-6">
                   <p>Over the past four years, we’ve provided more than $1 million in combined cash and pro bono support to Way to Grow, an early childhood education and nonprofit organization. Other community giving involvement throughout our agency history includes pro bono work for more than 13 organizations, direct giving, a scholarship program through the Minneapolis College of Art & Design, board memberships, and ongoing participation in the Keystone Club, which gives five percent of our company’s earnings back to the community each year.</p>
                   </div><!-- col-lg-6 -->
                   </div><!-- row -->
                   </div><!-- container -->
                   <!-- ==== TEAM MEMBERS ==== -->
-                  <div class="" id="team" name="team">
+<div class="" id="team" name="team">
                     <br>
                     <div class="row team-section">
                       <h1 class="centered">MEET OUR AWESOME TEAM</h1>
@@ -77,8 +84,9 @@
                               
                               </div><!-- row -->
                               </div><!-- container -->
-                              <div id="footerwrap">
+<div id="footerwrap">
                                 <div class="container">
                                   <h4>Created by <a href="http://blacktie.co">SqueakyWheel.io</a> - Copyright 2016</h4>
                                 </div>
                               </div>
+
