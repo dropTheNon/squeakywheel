@@ -8,16 +8,32 @@ class ComplaintsController < ApplicationController
       cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
       params[:complaint][:screenshot] = cloudinary_file['public_id']
     end
-
-    Complaint.create(complaint_params)
-    redirect_to complaints_path
+    @complaint = Complaint.new(complaint_params)
+    if @complaint.save
+      @complaint.users << current_user
+      UserMailer.send_mail_on_complaint_creation(@complaint).deliver_now
+      redirect_to complaints_path
+    else
+      flash[:danger] = 'An error occurred. Please make sure you are logged in and that all fields have been filled out correctly.'
+      redirect_to complaint_new_path
+    end
   end
 
   def edit
+    @complaint = Complaint.find(params[:id])
   end
 
   def update
-
+    @complaint = Complaint.find(params[:id])
+    if (params[:complaint][:screenshot])
+      uploaded_file = params[:complaint][:screenshot].path
+      cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+      params[:complaint][:screenshot] = cloudinary_file['public_id']
+    end
+    t = Complaint.find(params[:id])
+    t.update(complaint_params)
+    flash[:success] = 'Complaint Updated!'
+    redirect_to root_path
   end
 
   def index
@@ -33,6 +49,6 @@ class ComplaintsController < ApplicationController
   private 
 
   def complaint_params
-    params.require(:complaint).permit(:title, :description, :screenshot, :company_id)
+    params.require(:complaint).permit(:title, :description, :screenshot, :company_id, :user_id)
   end
 end
