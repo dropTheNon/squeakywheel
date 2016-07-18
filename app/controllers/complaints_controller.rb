@@ -9,8 +9,14 @@ class ComplaintsController < ApplicationController
       params[:complaint][:screenshot] = cloudinary_file['public_id']
     end
 
-    Complaint.create(complaint_params)
-    redirect_to root_path
+    @complaint = Complaint.new(complaint_params)
+    if @complaint.save
+      @complaint.users << current_user
+      redirect_to complaints_path
+    else
+      flash[:danger] = 'An error occurred. Please make sure you are logged in and that all fields have been filled out correctly.'
+      redirect_to complaint_new_path
+    end
   end
 
   def edit
@@ -43,6 +49,6 @@ class ComplaintsController < ApplicationController
   private 
 
   def complaint_params
-    params.require(:complaint).permit(:title, :description, :screenshot, :company_id)
+    params.require(:complaint).permit(:title, :description, :screenshot, :company_id, :user_id)
   end
 end

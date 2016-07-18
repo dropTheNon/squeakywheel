@@ -10,7 +10,6 @@ class AuthController < ApplicationController
       u.password = 'T3mp0raryPa55word'
       u.password_confirmation = 'T3mp0raryPa55word'
     end
-    puts user.inspect
     user.save!
 
     session[:user_id] = user.id
