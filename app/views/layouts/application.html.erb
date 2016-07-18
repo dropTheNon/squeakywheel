@@ -8,6 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </head>
@@ -16,25 +17,26 @@
     <div id="navbar-main">
       <!-- Fixed navbar -->
       <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span>
-            </button>
-            <a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span></a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="/#home" class="smoothScroll">Home</a></li>
-              <li> <a href="/#about" class="smoothScroll">How It Works</a></li>
-              <li> <a href="/#team" class="smoothScroll"> Team</a></li>
-              
-              <li> <a href="/complaint/new" class="smoothScroll">Create Complaint</a></li>
-              <li> <a href="#contact" class="smoothScroll"> Contact</a></li>
-              <li> <a <%= link_to('Signup', signup_path) %></a></li>
-              <li> <a <%= link_to('Login', login_path) %></a></li>
-              <li> <a <%= link_to('Logout', logout_path, method: :delete) %></a></li>
-          </div><!--/.nav-collapse -->
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="fa fa-deaf fa-4x" style=" color:#3498db;"></span>
+          </button>
+          <a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="fa fa-deaf" style="font-size:25px; color:#3498db;"></span></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/#home" class="smoothScroll">Home</a></li>
+      <li> <a href="/#how" class="smoothScroll">How It Works</a></li>
+      <li> <a href="/#about" class="smoothScroll"> Top 10 Complaints</a></li>
+      <li> <a href="/#team" class="smoothScroll"> Team</a></li>
+      if 
+      <li> <a <%= link_to('Signup', signup_path) %></a></li>
+      <li> <a <%= link_to('Login', login_path) %>
+</a></li>
+      <li> <a <%= link_to('Logout', logout_path, method: :delete) %></a></li>
+      <li> <a href="/complaint/new" class="smoothScroll cc">Create Complaint</a></li>
+        </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
