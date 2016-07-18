@@ -12,6 +12,7 @@ class ComplaintsController < ApplicationController
     @complaint = Complaint.new(complaint_params)
     if @complaint.save
       @complaint.users << current_user
+      UserMailer.send_mail_on_complaint_creation(@complaint).deliver_now
       redirect_to complaints_path
     else
       flash[:danger] = 'An error occurred. Please make sure you are logged in and that all fields have been filled out correctly.'
