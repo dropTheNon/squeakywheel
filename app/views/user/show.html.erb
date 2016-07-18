@@ -1,5 +1,23 @@
-<h1>Profile</h1>
-
-<h1><%= @current_user.name %>'s Profile</h1>
-<p><%= @current_user.email %></p>
-<%= cl_image_tag(@current_user.screenshot) %>
+<div class="container pad">
+  <h1><%= @current_user.name %>'s Profile</h1>
+  <p><%= @current_user.email %></p>
+  <%= cl_image_tag(@current_user.screenshot) %>
+  <div class="panel-group" id="accordion">
+    <% @complaints.each do |variable| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= variable.id %>"><strong><%= variable.title.upcase %> </strong><br>
+        </a>
+        </h4>
+      </div>
+      <div id="collapse<%= variable.id %>" class="panel-collapse collapse in">
+        <div class="panel-body">Description: <%= variable.description %> <br>
+          <%= cl_image_tag(variable.screenshot, :width=>300, :height=>300, :crop=>"scale") %>
+          <%= variable.vote_count %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -8,7 +8,6 @@ class ComplaintsController < ApplicationController
       cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
       params[:complaint][:screenshot] = cloudinary_file['public_id']
     end
-
     @complaint = Complaint.new(complaint_params)
     if @complaint.save
       @complaint.users << current_user
