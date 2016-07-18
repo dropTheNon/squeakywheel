@@ -1,6 +1,7 @@
 <h1>Complaints</h1>
 <% @complaints.each do |variable| %>
-<%= variable.title =%>
-<%= variable.description =%>
-<%= cl_image_tag(variable.screenshot) %>
+<div><%= variable.title =%></div>
+<div><%= variable.description =%></div>
+<div><%= cl_image_tag(variable.screenshot, :width=>300, :height=>100, :crop=>"scale") %></div>
+
 <% end %>

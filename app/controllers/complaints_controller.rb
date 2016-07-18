@@ -20,10 +20,20 @@ class ComplaintsController < ApplicationController
   end
 
   def edit
+    @complaint = Complaint.find(params[:id])
   end
 
   def update
-
+    @complaint = Complaint.find(params[:id])
+    if (params[:complaint][:screenshot])
+      uploaded_file = params[:complaint][:screenshot].path
+      cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+      params[:complaint][:screenshot] = cloudinary_file['public_id']
+    end
+    t = Complaint.find(params[:id])
+    t.update(complaint_params)
+    flash[:success] = 'Complaint Updated!'
+    redirect_to root_path
   end
 
   def index
