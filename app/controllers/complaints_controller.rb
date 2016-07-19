@@ -46,6 +46,7 @@ class ComplaintsController < ApplicationController
 
   def index
     @complaints = Complaint.all.order("vote_count DESC")
+    @current_user = current_user
   end
 
   def upvote
