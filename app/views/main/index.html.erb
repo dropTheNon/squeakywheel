@@ -9,7 +9,6 @@
       <p id="scroll-icon" class="fa fa-chevron-down fa-2x"></p>
   </header>     
 </div><!-- /headerwrap -->
-
 <!-- ==== GREYWRAP ==== -->
 <div name="how" id="greywrap" >
   <div class="row">
@@ -18,70 +17,84 @@
       <span class="fa fa-plus fa-4x"></span>
       <h2>Create A Complaint</h2>
       <p>Easily create a complaint or feature request, and we ensure it gets to the team responsible for resolving your request.</p>
-      </div><!-- col-lg-4 -->
+    </div><!-- col-lg-4 -->
     <div class="col-lg-4 callout">
-        <span class="fa fa-users fa-4x"></span>
-        <h2>Get Backed Up</h2>
-        <p>After you create a complaint our community of users will up vote your complaint or feature if they like it. For each up vote a complaint receives, we send a new email with a prepopulated description of the issue to the company.</p>
-        </div><!-- col-lg-4 -->
+      <span class="fa fa-users fa-4x"></span>
+      <h2>Get Backed Up</h2>
+      <p>After you create a complaint our community of users will up vote your complaint or feature if they like it. For each up vote a complaint receives, we send a new email with a prepopulated description of the issue to the company.</p>
+    </div><!-- col-lg-4 -->
     <div class="col-lg-4 callout">
-        <span class="fa fa-thumbs-up fa-4x"></span>
+      <span class="fa fa-thumbs-up fa-4x"></span>
       <h2>Up Vote</h2>
-          <p>Back up other users in the community by up voting their complaints. This helps inform the company that multiple users are being affected by the issue, ideally helping them better prioritize which issues to resolve first.</p>
-          </div><!-- col-lg-4 -->
-          </div><!-- row -->
-          </div><!-- greywrap -->
-          <!-- ==== ABOUT ==== -->
-<div class="container" id="about" name="about">
-            <div class="row white">
-              <br>
-              <h1 class="centered">Top 10 Complaints</h1>
-              <hr>
-              
-              <div class="col-lg-6">
-                <p>We believe ideas come from everyone, everywhere. In fact, at BlackTie, everyone within our agency walls is a designer in their own right. And there are a few principles we believe—and we believe everyone should believe—about our design craft. These truths drive us, motivate us, and ultimately help us redefine the power of design. We’re big believers in doing right by our neighbors. After all, we grew up in the Twin Cities and we believe this place has much to offer. So we do what we can to support the community we love.</p>
-                </div><!-- col-lg-6 -->
-    <div class="col-lg-6">
-                  <p>Over the past four years, we’ve provided more than $1 million in combined cash and pro bono support to Way to Grow, an early childhood education and nonprofit organization. Other community giving involvement throughout our agency history includes pro bono work for more than 13 organizations, direct giving, a scholarship program through the Minneapolis College of Art & Design, board memberships, and ongoing participation in the Keystone Club, which gives five percent of our company’s earnings back to the community each year.</p>
-                  </div><!-- col-lg-6 -->
-                  <%= link_to('All Complaints', '/complaints', class: 'btn btn-primary center-btn', id: 'center-btn') %>
-                  </div><!-- row -->
-                  </div><!-- container -->
-                  <!-- ==== TEAM MEMBERS ==== -->
-<div class="" id="team" name="team">
-                    <br>
-                    <div class="row team-section">
-                      <h1 class="centered">MEET OUR AWESOME TEAM</h1>
-                      <hr>
-                      <br>
-                      <br>
-                      <div class="col-lg-4 centered">
-                        <img class="img" src="<%= asset_path 'team01.jpg' %>" height="120px" width="120px" alt="">
-                        <br>
-                        <h4><b>Ivar Lee</b></h4>
-                        <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
-                        </div><!-- col-lg-3 -->
-                        
-                        <div class="col-lg-4 centered">
-                          <img class="img img-circle" src="<%= asset_path 'team02.jpg' %>" height="120px" width="120px" alt="">
-                          <br>
-                          <h4><b>Chris Madison</b></h4>
-                          <p>Chris is an experienced Product Manager passionate about building products to help businesses and their customers succeed. He is currently serving as the front-end developer, database architect and administrator, as well as product manager.</p>
-                          </div><!-- col-lg-3 -->
-                          
-                          <div class="col-lg-4 centered">
-                            <img class="img img-circle" src="<%= asset_path 'team03.jpg' %>" height="120px" width="120px" alt="">
-                            <br>
-                            <h4><b>Josh Mcbroom</b></h4>
-                            <p>Be a creative director is a hard task, but Michele loves what she does. Her combination of knowledge and expertise is an important pillar in our agency.</p>
-                            </div><!-- col-lg-3 -->
-                          
-                              
-                              </div><!-- row -->
-                              </div><!-- container -->
+      <p>Back up other users in the community by up voting their complaints. This helps inform the company that multiple users are being affected by the issue, ideally helping them better prioritize which issues to resolve first.</p>
+    </div><!-- col-lg-4 -->
+  </div><!-- row -->
+</div><!-- greywrap -->
+<!-- ==== TOP 10 COMPLAINTS ==== -->
+<div class="container" id="d3Main" name="about">
+  <div class="row white">
+    <!-- ==== SCRIPT CALLING D3 ==== -->
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <h1 class="centered">Top 10 Complaints</h1>
+    <!-- ==== SVG ELEMENT FOR D3 VISUALIZATION ==== -->
+    <svg id="svg" width="500" height="300"></svg>
+    <!-- ==== BEGIN SCRIPT FOR D3 VISUALIZATION ==== -->
+    
+    <script>
+      $.ajax({
+        url: 'complaints/data',
+        dataType: 'text',
+        success: function(data) {ready(data);}
+      });
+      function ready(data) {
+        // var data = [4, 8, 15, 16, 23, 42];
+        // console.log(data);
+        data = JSON.parse(data);
+        // d3.select("svg")
+        //   .selectAll("div")
+        //   .data(data)
+        //   .enter().append("div")
+        //   .style("width", function(d) { return (d.vote_count * 100) + "px"; })
+        //   .text(function(d) { return d.title; });
+        //   console.log(data);
+      };
+
+    </script>
+    <!-- ==== END SCRIPT FOR D3 VISUALIZATION ==== -->
+    <%= link_to('All Complaints', '/complaints', class: 'btn btn-primary center-btn', id: 'center-btn') %>
+  </div><!-- row -->
+</div><!-- container -->
+<!-- ==== TEAM MEMBERS ==== -->
+<div class="container" id="team" name="team">
+  <br>
+  <div class="row team-section">
+    <h1 class="centered">MEET OUR AWESOME TEAM</h1>
+    <hr>
+    <br>
+    <br>
+    <div class="col-lg-4 centered">
+      <img class="img" src="<%= asset_path 'team01.jpg' %>" height="120px" width="120px" alt="">
+      <br>
+      <h4><b>Ivar Lee</b></h4>
+      <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
+    </div><!-- col-lg-3 -->  
+    <div class="col-lg-4 centered">
+      <img class="img img-circle" src="<%= asset_path 'team02.jpg' %>" height="120px" width="120px" alt="">
+      <br>
+      <h4><b>Chris Madison</b></h4>
+      <p>Chris is an experienced Product Manager passionate about building products to help businesses and their customers succeed. He is currently serving as the front-end developer, database architect and administrator, as well as product manager.</p>
+    </div><!-- col-lg-4 -->  
+    <div class="col-lg-4 centered">
+      <img class="img img-circle" src="<%= asset_path 'team03.jpg' %>" height="120px" width="120px" alt="">
+      <br>
+      <h4><b>Josh Mcbroom</b></h4>
+      <p>Be a creative director is a hard task, but Michele loves what she does. Her combination of knowledge and expertise is an important pillar in our agency.</p>
+    </div><!-- col-lg-4 -->                           
+  </div><!-- row -->
+</div><!-- container -->
 <div id="footerwrap">
-                                <div class="container">
-                                  <h4>Created by <a href="http://blacktie.co">SqueakyWheel.io</a> - Copyright 2016</h4>
-                                </div>
-                              </div>
+  <div class="container">
+    <h4>Created by <a href="http://blacktie.co">SqueakyWheel.io</a> - Copyright 2016</h4>
+  </div>
+</div>
 
