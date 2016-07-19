@@ -12,7 +12,7 @@ class UserController < ApplicationController
       redirect_to root_path
       flash[:success] = 'User Created!'
     else
-      flash[:danger] = user.errors.messages
+      flash[:danger] = 'Invalid email or password.'
       redirect_to signup_path
     end
   end
@@ -33,7 +33,7 @@ class UserController < ApplicationController
     end
     t = User.find(params[:id])
     t.update(user_params)
-    flash[:success] = 'User Profile Updated!'
+    flash[:success] = 'User profile updated!'
     redirect_to root_path
   end
 

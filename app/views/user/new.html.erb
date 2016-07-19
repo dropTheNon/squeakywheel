@@ -5,9 +5,9 @@
 
     <%= f.email_field :email %>
 
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: 'Min 8 character length' %>
 
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation,  placeholder: 'Min 8 character length' %>
 
     <%= f.submit 'Signup', class: 'btn btn-success' %>
     <%= link_to('Signup with Facebook', '/auth/facebook', class: 'btn btn-primary') %>

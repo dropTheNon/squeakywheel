@@ -3,7 +3,9 @@
 <header class="clearfix">
       <h1><span ></span></h1>
       <p>SqueakyWheel an app to help you provide feedback to corporations</p>
+      <% if @current_user %>
       <%= link_to('Create Complaint', '/complaint/new', class: 'btn btn-primary marg', id: 'hero-btn') %>
+      <% end %>
       <p id="scroll-icon" class="fa fa-chevron-down fa-2x"></p>
   </header>     
 </div><!-- /headerwrap -->
