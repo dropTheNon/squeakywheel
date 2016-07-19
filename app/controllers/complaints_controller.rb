@@ -49,9 +49,12 @@ class ComplaintsController < ApplicationController
   end
 
   def upvote
+    if current_user 
     complaint = Complaint.find(params[:complaint_id])
     complaint.update(vote_count: complaint.vote_count + 1)
     complaint.users << current_user
+    redirect_to complaints_path
+    end
   end
 
   def show
