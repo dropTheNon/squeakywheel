@@ -34,12 +34,11 @@
 </div><!-- greywrap -->
 <!-- ==== TOP 10 COMPLAINTS ==== -->
 <div class="container" id="d3Main" name="about">
-  <div class="row white">
     <!-- ==== SCRIPT CALLING D3 ==== -->
     <script src="//d3js.org/d3.v4.min.js"></script>
     <h1 class="centered">Top 10 Complaints</h1>
     <!-- ==== SVG ELEMENT FOR D3 VISUALIZATION ==== -->
-    <svg id="svg" width="500" height="300"></svg>
+    <svg class="svg" width="500" height="300"></svg>
     <!-- ==== BEGIN SCRIPT FOR D3 VISUALIZATION ==== -->
     
     <script>
@@ -50,21 +49,25 @@
       });
       function ready(data) {
         // var data = [4, 8, 15, 16, 23, 42];
-        // console.log(data);
+        console.log(data);
         data = JSON.parse(data);
-        // d3.select("svg")
-        //   .selectAll("div")
-        //   .data(data)
-        //   .enter().append("div")
-        //   .style("width", function(d) { return (d.vote_count * 100) + "px"; })
-        //   .text(function(d) { return d.title; });
+        d3.select(".svg")
+          .selectAll("rect")
+          .data(data)
+          .enter().append("rect")
+          .attr("y", function(d, i) {
+            return i * 21;
+          })
+          .style("fill", "#1A732D")
+          .style("width", function(d) { return d.vote_count * 100 + "px"; })
+          .style("height", 20 + "px")
+          .text(function(d) { return d.title; });
         //   console.log(data);
       };
 
     </script>
     <!-- ==== END SCRIPT FOR D3 VISUALIZATION ==== -->
     <%= link_to('All Complaints', '/complaints', class: 'btn btn-primary center-btn', id: 'center-btn') %>
-  </div><!-- row -->
 </div><!-- container -->
 <!-- ==== TEAM MEMBERS ==== -->
 <div class="greywrap" id="team" name="team">
