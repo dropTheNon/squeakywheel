@@ -63,6 +63,12 @@ class ComplaintsController < ApplicationController
   def vote
   end
 
+  def destroy
+    UsersComplaints.where(complaint_id: params[:complaint_id]).destroy_all
+    Complaint.destroy(params[:complaint_id])
+    redirect_to root_path
+  end
+
   private 
 
   def complaint_params
