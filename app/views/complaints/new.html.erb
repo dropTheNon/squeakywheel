@@ -7,7 +7,7 @@
 
     <%= f.file_field :screenshot %>
     
-    <%= f.number_field :company_id %>
+    <%= f.collection_select(:company_id, @companies, :id, :name) %>
 
     <%= f.submit 'Create', class: 'btn btn-success'%>
   <% end %>
