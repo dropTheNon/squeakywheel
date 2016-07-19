@@ -5,6 +5,8 @@
       <p>SqueakyWheel an app to help you provide feedback to corporations</p>
       <% if @current_user %>
       <%= link_to('Create Complaint', '/complaint/new', class: 'btn btn-primary marg', id: 'hero-btn') %>
+      <% else %>
+      <%= link_to('Create Complaint', '/login', class: 'btn btn-primary marg', id: 'hero-btn') %>
       <% end %>
       <p id="scroll-icon" class="fa fa-chevron-down fa-2x"></p>
   </header>     
@@ -65,15 +67,14 @@
   </div><!-- row -->
 </div><!-- container -->
 <!-- ==== TEAM MEMBERS ==== -->
-<div class="container" id="team" name="team">
-  <br>
-  <div class="row team-section">
+<div class="greywrap" id="team" name="team">
+  <div class="container team-section greywrap">
     <h1 class="centered">MEET OUR AWESOME TEAM</h1>
     <hr>
     <br>
     <br>
     <div class="col-lg-4 centered">
-      <img class="img" src="<%= asset_path 'team01.jpg' %>" height="120px" width="120px" alt="">
+      <img class="img img-circle" src="<%= asset_path 'team01.jpg' %>" height="120px" width="120px" alt="">
       <br>
       <h4><b>Ivar Lee</b></h4>
       <p>Mike combines an expert technical knowledge with a real eye for design. Working with clients from a wide range of industries, he fully understands client objectives when working on a project, large or small.</p>
@@ -82,13 +83,13 @@
       <img class="img img-circle" src="<%= asset_path 'team02.jpg' %>" height="120px" width="120px" alt="">
       <br>
       <h4><b>Chris Madison</b></h4>
-      <p>Chris is an experienced Product Manager passionate about building products to help businesses and their customers succeed. He is currently serving as the front-end developer, database architect and administrator, as well as product manager.</p>
+      <p>Chris is an experienced Product Manager passionate about building products to help businesses and their customers succeed. He is currently serving as the front-end developer, database architect and administrator, as well as product manager for SqueakyWheel.io.</p>
     </div><!-- col-lg-4 -->  
     <div class="col-lg-4 centered">
       <img class="img img-circle" src="<%= asset_path 'team03.jpg' %>" height="120px" width="120px" alt="">
       <br>
       <h4><b>Josh Mcbroom</b></h4>
-      <p>Be a creative director is a hard task, but Michele loves what she does. Her combination of knowledge and expertise is an important pillar in our agency.</p>
+      <p>Josh is a customer-focused full-stack developer, used to making every experience awesome. In addition to back-end development, he is rocking the git master role for SqueakyWheel.</p>
     </div><!-- col-lg-4 -->                           
   </div><!-- row -->
 </div><!-- container -->

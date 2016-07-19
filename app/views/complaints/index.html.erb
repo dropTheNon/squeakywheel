@@ -3,19 +3,23 @@
   <div class="panel-group" id="accordion">
     <% @complaints.each do |complaint| %>
     <div class="panel panel-default">
+    <%= form_tag('/complaints', method: :put) do %>
+            <%= hidden_field_tag 'complaint_id', complaint.id %>
+            <%= button_tag(type: 'submit', class: 'vote ') do %>
+              <i class="fa fa-thumbs-o-up fa-2x"> +<%= complaint.vote_count %></i>
+          <% end %>
+          <% end %>
       <div class="panel-heading">
+
         <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= complaint.id %>"><strong><%= complaint.title.upcase %> </strong><br>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= complaint.id %>"><strong><%= complaint.title.upcase %>
+         </strong>
         </a>
         </h4>
       </div>
       <div id="collapse<%= complaint.id %>" class="panel-collapse collapse in">
         <div class="panel-body">Description: <%= complaint.description %> <br>
-          <%= complaint.vote_count %>
-          <%= form_tag('/complaints', method: :put) do %>
-            <%= hidden_field_tag 'complaint_id', complaint.id %>
-            <%= submit_tag 'Echo Complaint' %>
-          <% end %>
+          
           <%= cl_image_tag(complaint.screenshot, :width=>300, :crop=>"scale") %>
         </div>
       </div>
