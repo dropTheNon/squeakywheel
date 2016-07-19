@@ -3,12 +3,20 @@
   <div class="panel-group" id="accordion">
     <% @complaints.each do |complaint| %>
     <div class="panel panel-default">
-    <%= form_tag('/complaints', method: :put) do %>
-      <%= hidden_field_tag 'complaint_id', complaint.id %>
-      <%= button_tag(type: 'submit', class: 'vote ') do %>
-        <i class="fa fa-thumbs-o-up fa-2x"> +<%= complaint.vote_count %></i>
+      <% exists = false %>
+      <% complaint.users.each do |user| %>
+        <% if user.id == @current_user.id %>
+          <% exists = true %>
+        <% end %>
       <% end %>
-      <% end %>
+      <% if !exists %>
+        <%= form_tag('/complaints', method: :put) do %>
+          <%= hidden_field_tag 'complaint_id', complaint.id %>
+          <%= button_tag(type: 'submit', class: 'vote ') do %>
+            <i class="fa fa-thumbs-o-up fa-2x"> +<%= complaint.vote_count %></i>
+          <% end %>
+        <% end %>
+      <% end %>  
       <div class="panel-heading">
 
         <h4 class="panel-title">

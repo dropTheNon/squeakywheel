@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   post 'complaint/new', to: 'complaints#create'
   get 'complaint/:id/edit', to: 'complaints#edit'
   put 'complaint/:id/edit', to: 'complaints#update'
+  delete 'complaint/:complaint_id', to: 'complaints#destroy', as: 'complaint_delete'
   # get 'complaint/:id', to: 'complaints#show'
   # put 'complaint/:id', to: 'complaints#vote'
   # resources :complaints

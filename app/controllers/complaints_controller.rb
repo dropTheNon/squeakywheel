@@ -46,6 +46,7 @@ class ComplaintsController < ApplicationController
 
   def index
     @complaints = Complaint.all.order("vote_count DESC")
+    @current_user = current_user
   end
 
   def upvote
@@ -61,6 +62,12 @@ class ComplaintsController < ApplicationController
   end
 
   def vote
+  end
+
+  def destroy
+    UsersComplaints.where(complaint_id: params[:complaint_id]).destroy_all
+    Complaint.destroy(params[:complaint_id])
+    redirect_to root_path
   end
 
   private 

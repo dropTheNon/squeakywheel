@@ -19,7 +19,10 @@ class UserController < ApplicationController
 
   def show
     current = User.find(params[:id])
+    puts current.inspect
     @user_complaint = current.complaints
+    puts @user_complaint.inspect
+    puts '2131231231231231231'
   end
 
   def edit
