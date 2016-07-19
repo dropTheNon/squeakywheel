@@ -37,7 +37,7 @@ class UserController < ApplicationController
     t = User.find(params[:id])
     t.update(user_params)
     flash[:success] = 'User profile updated!'
-    redirect_to root_path
+    redirect_to profile_path
   end
 
   private
