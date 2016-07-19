@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   # Complain controller routes
   get 'complaints', to: 'complaints#index'
+  get 'complaints/data'
+  put 'complaints', to: 'complaints#upvote'
   get 'complaint/new', to: 'complaints#new'
   post 'complaint/new', to: 'complaints#create'
   get 'complaint/:id/edit', to: 'complaints#edit'

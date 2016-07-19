@@ -9,6 +9,7 @@ class ComplaintsController < ApplicationController
       params[:complaint][:screenshot] = cloudinary_file['public_id']
     end
     @complaint = Complaint.new(complaint_params)
+    @complaint.vote_count = 1
     if @complaint.save
       @complaint.users << current_user
       UserMailer.send_mail_on_complaint_creation(@complaint).deliver_now
@@ -37,8 +38,20 @@ class ComplaintsController < ApplicationController
     redirect_to root_path
   end
 
+  def data
+    # @JSONcomplaints = JSON.parse(Complaint.all().to_json)
+    # render @JSONcomplaints
+    render :json => Complaint.all().limit(10)
+  end
+
   def index
-    @complaints = Complaint.all
+    @complaints = Complaint.all.order("vote_count DESC")
+  end
+
+  def upvote
+    complaint = Complaint.find(params[:complaint_id])
+    complaint.update(vote_count: complaint.vote_count + 1)
+    complaint.users << current_user
   end
 
   def show
