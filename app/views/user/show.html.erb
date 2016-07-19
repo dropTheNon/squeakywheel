@@ -1,7 +1,7 @@
 <div class="container pad">
   <h1><%= @current_user.name %>'s Profile</h1>
   <p><%= @current_user.email %></p>
-  <%= cl_image_tag(@current_user.screenshot) %>
+  <%= cl_image_tag(@current_user.screenshot, :height=>300, :crop=>"scale") %>
   <div class="panel-group" id="accordion">
     <% @user_complaint.each do |variable| %>
     <div class="panel panel-default">
