@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   # User controller routes
   get 'signup', to: 'user#new'
   post 'signup', to: 'user#create'
-  get 'user/:id', to: 'user#show'
-  get 'user/:id/edit', to: 'user#edit'
+  get 'user/:id', to: 'user#show', as: 'profile'
+  get 'user/:id/edit', to: 'user#edit', as: 'profile_edit'
   put 'user/:id/edit', to: 'user#update'
 
   # Session controller routes
