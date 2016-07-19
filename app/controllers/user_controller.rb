@@ -18,9 +18,8 @@ class UserController < ApplicationController
   end
 
   def show
-    c = User.find(params[:id])
-    t = UsersComplaints.where(user_id: c)
-    @t = Complaint.where(id: t)
+    current = User.find(params[:id])
+    @user_complaint = current.complaints
   end
 
   def edit

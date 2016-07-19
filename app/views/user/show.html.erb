@@ -3,7 +3,7 @@
   <p><%= @current_user.email %></p>
   <%= cl_image_tag(@current_user.screenshot) %>
   <div class="panel-group" id="accordion">
-    <% @t.each do |variable| %>
+    <% @user_complaint.each do |variable| %>
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
