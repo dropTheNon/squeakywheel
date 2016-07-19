@@ -1,5 +1,7 @@
 class ComplaintsController < ApplicationController
   def new
+    @companies = Company.order(:name)
+    puts @companies
   end
 
   def create

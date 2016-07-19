@@ -9,4 +9,8 @@ class Company < ApplicationRecord
   uniqueness: true,
   email: true,
   on: :create
+
+  # def companyName
+  #   "#{name}"
+  # end
 end
