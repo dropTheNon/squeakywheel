@@ -21,10 +21,10 @@ class PasswordsController < ApplicationController
     valid_code = user.expires_at > Time.now.utc
     if user && valid_code && params[:password]
       user.update(password: params[:password], reset_code: nil, expires_at: nil)
-      flash[:success] = 'Reset successful, login!'
+      flash[:success] = 'Reset successful!'
       redirect_to login_path
     else
-      flash[:danger] = 'Invalid reset code and/or password'
+      flash[:danger] = 'Invalid reset code and/or password.'
       redirect_to root_path
     end
   end

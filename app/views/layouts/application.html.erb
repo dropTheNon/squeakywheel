@@ -41,8 +41,10 @@
       <li> <a <%= link_to('Signup', signup_path) %></a></li>
       <li> <a <%= link_to('Login', login_path) %>
 </a></li>
+      <% if @current_user %>
       
       <li> <a href="/complaint/new" class="smoothScroll cc">Create Complaint</a></li>
+      <% end %>
       <% end %>
         </div><!--/.nav-collapse -->
         </div>

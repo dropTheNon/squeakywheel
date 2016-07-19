@@ -12,9 +12,10 @@ class ComplaintsController < ApplicationController
     if @complaint.save
       @complaint.users << current_user
       UserMailer.send_mail_on_complaint_creation(@complaint).deliver_now
+      flash[:success] = 'Complaint created!'
       redirect_to complaints_path
     else
-      flash[:danger] = 'An error occurred. Please make sure you are logged in and that all fields have been filled out correctly.'
+      flash[:danger] = 'Please make sure you are logged in and that all fields have been filled out correctly.'
       redirect_to complaint_new_path
     end
   end
@@ -32,7 +33,7 @@ class ComplaintsController < ApplicationController
     end
     t = Complaint.find(params[:id])
     t.update(complaint_params)
-    flash[:success] = 'Complaint Updated!'
+    flash[:success] = 'Complaint updated!'
     redirect_to root_path
   end
 
