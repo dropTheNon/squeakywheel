@@ -18,6 +18,7 @@ class UserController < ApplicationController
   end
 
   def show
+    @complaints = Complaint.all()
   end
 
   def edit
