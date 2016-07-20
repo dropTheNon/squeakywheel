@@ -18,7 +18,6 @@ class AuthController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    flash[:success] = 'You\'ve signed in!'
     redirect_to root_path
   end
 

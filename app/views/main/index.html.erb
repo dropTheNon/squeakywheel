@@ -1,14 +1,13 @@
 <!-- ==== HEADERWRAP ==== -->
 <div id="headerwrap" id="home" name="home">
 <header class="clearfix">
-      <h1>SqueakyWheel</h1>
-      <p>An app to help provide feedback to corporations</p>
-      <% if @current_user %>
-      <%= link_to('Create Complaint', '/complaint/new', class: 'btn btn-primary marg', id: 'hero-btn') %>
-      <% else %>
-      <%= link_to('Create Complaint', '/login', class: 'btn btn-primary marg', id: 'hero-btn') %>
-      <% end %>
-      <p id="scroll-icon" class="fa fa-chevron-down fa-2x"></p>
+  <h1>SqueakyWheel</h1>
+  <p>An app to help provide feedback to corporations</p>
+  <% if @current_user %>
+  <%= link_to('Create Complaint', '/complaint/new', class: 'btn btn-primary marg', id: 'hero-btn') %>
+  <% else %>
+  <%= link_to('Create Complaint', '/login', class: 'btn btn-primary marg', id: 'hero-btn') %>
+  <% end %>
   </header>     
 </div><!-- /headerwrap -->
 <!-- ==== GREYWRAP ==== -->
@@ -71,8 +70,6 @@
           })
           .style("fill", "#fff")
           .text(function(d) { return d.title; });
-        //   console.log(data);
-
           .text(function(d) { console.log(d.title); return d.title; });
           
       };
@@ -80,7 +77,11 @@
     </script>
     <!-- ==== END SCRIPT FOR D3 VISUALIZATION ==== -->
     <br>
-    <%= link_to('All Complaints', '/complaints', class: 'btn btn-primary center-btn', id: 'center-btn') %>
+    <% if @current_user %>
+      <%= link_to('All Complaints', '/complaints', class: 'btn btn-primary center-btn', id: 'center-btn') %>
+    <% else %>
+      <%= link_to('All Complaints', signup_path, class: 'btn btn-primary center-btn', id: 'center-btn') %>
+    <% end %>  
   </div>
 </div><!-- container -->
 <!-- ==== TEAM MEMBERS ==== -->
@@ -106,13 +107,14 @@
       <img class="img img-circle" src="<%= asset_path 'team03.jpg' %>" height="120px" width="120px" alt="">
       <br>
       <h4><b>Josh Mcbroom</b></h4>
-      <p>Josh is a customer-focused Full-Stack Developer, used to making every experience awesome. In addition to back-end development, he is rocking the git master role for SqueakyWheel.</p>
+      <p>Josh is a customer-focused Full-Stack Developer, used to making every experience awesome. In addition to back-end development, he is rocking the Project Manager and Git Master roles for SqueakyWheel.</p>
     </div><!-- col-lg-4 -->                           
   </div><!-- row -->
 </div><!-- container -->
 <div id="footerwrap">
   <div class="container">
     <h4>Created by <a href="http://SqueakyWheel.io">SqueakyWheel.io</a> - Copyright 2016</h4>
+    <!-- Template by blacktie.co -->
   </div>
 </div>
 

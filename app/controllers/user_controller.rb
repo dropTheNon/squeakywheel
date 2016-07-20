@@ -10,7 +10,6 @@ class UserController < ApplicationController
     if user.save
       session[:user_id] = user.id
       redirect_to root_path
-      flash[:success] = 'User Created!'
     else
       flash[:danger] = 'Invalid email or password.'
       redirect_to signup_path
