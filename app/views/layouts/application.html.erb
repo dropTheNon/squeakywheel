@@ -31,7 +31,8 @@
               <li> <a href="/#how" class="smoothScroll">How It Works</a></li>
               <li> <a href="/#about" class="smoothScroll"> Top 10 Complaints</a></li>
               <li> <a <%= link_to('All Complaints', complaints_path) %></a></li>
-              <li> <a href="/complaint/new" class="smoothScroll cc">Create Complaint</a></li>
+              <li> <a <%= link_to('Create Complaints', complaint_new_path) %></a></li>
+<!--               <li> <a href="/complaint/new" class="smoothScroll cc">Create Complaint</a></li> -->
               <li> <a <%= link_to('Profile', profile_path(@current_user)) %>
               </a></li>
               <li> <a <%= link_to('Logout', logout_path, method: :delete) %></a></li>
