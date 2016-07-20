@@ -14,7 +14,7 @@ class ComplaintsController < ApplicationController
     @complaint.vote_count = 1
     if @complaint.save
       @complaint.users << current_user
-      UserMailer.send_mail_on_complaint_creation(@complaint).deliver_now
+      # UserMailer.send_mail_on_complaint_creation(@complaint).deliver_now
       flash[:success] = 'Complaint created!'
       redirect_to complaints_path
     else

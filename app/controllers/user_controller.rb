@@ -11,6 +11,7 @@ class UserController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
       flash[:success] = 'User Created!'
+      AppMailer.welcome_email(@user).deliver
     else
       flash[:danger] = 'Invalid email or password.'
       redirect_to signup_path
