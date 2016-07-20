@@ -1,31 +1,23 @@
-# Whiteboard planning
+# README
+
+## Whiteboard planning
 
  * General wireframing whiteboarding
  * http://imgur.com/a/VyDJ8
  * Routes
  * http://imgur.com/iuWvJSL
 
-# README
+## Ruby version : 2.2.2p95
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Deployment instructions
 
-Things you may want to cover:
+ * Git clone this repo
+ * CD in to project root
+ * run 'bundle install'
+ * run 'rake db:create'
+ * run 'rails s' to start the rails server
+ * view the local server on localhost.com/3000
 
-* Ruby version
+## Deployed APP
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ * http://squeakywheel.herokuapp.com/ 
