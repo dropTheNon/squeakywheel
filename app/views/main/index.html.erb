@@ -33,14 +33,14 @@
   </div><!-- row -->
 </div><!-- greywrap -->
 <!-- ==== TOP 10 COMPLAINTS ==== -->
-<div class="container" id="d3Main" name="about">
+<div class="container" name="about">
+  <h1 class="centered">Top 10 Complaints</h1>
+  <div id="d3Main">
     <!-- ==== SCRIPT CALLING D3 ==== -->
     <script src="//d3js.org/d3.v4.min.js"></script>
-    <h1 class="centered">Top 10 Complaints</h1>
     <!-- ==== SVG ELEMENT FOR D3 VISUALIZATION ==== -->
     <svg class="svg" width="500" height="300"></svg>
     <!-- ==== BEGIN SCRIPT FOR D3 VISUALIZATION ==== -->
-    
     <script>
       $.ajax({
         url: 'complaints/data',
@@ -64,6 +64,7 @@
           .style("width", function(d) { return d.vote_count * 100 + "px"; })
           .style("height", 20 + "px")
 
+
         containers.append("text")
           .attr("y", function(d, i) {
             return i * 21;
@@ -71,12 +72,16 @@
           .style("fill", "#fff")
           .text(function(d) { return d.title; });
         //   console.log(data);
+
+          .text(function(d) { console.log(d.title); return d.title; });
+          
       };
 
     </script>
     <!-- ==== END SCRIPT FOR D3 VISUALIZATION ==== -->
     <br>
     <%= link_to('All Complaints', '/complaints', class: 'btn btn-primary center-btn', id: 'center-btn') %>
+  </div>
 </div><!-- container -->
 <!-- ==== TEAM MEMBERS ==== -->
 <div class="greywrap" id="team" name="team">
@@ -101,7 +106,7 @@
       <img class="img img-circle" src="<%= asset_path 'team03.jpg' %>" height="120px" width="120px" alt="">
       <br>
       <h4><b>Josh Mcbroom</b></h4>
-      <p>Josh is a customer-focused full-stack developer, used to making every experience awesome. In addition to back-end development, he is rocking the git master role for SqueakyWheel.</p>
+      <p>Josh is a customer-focused Full-Stack Developer, used to making every experience awesome. In addition to back-end development, he is rocking the git master role for SqueakyWheel.</p>
     </div><!-- col-lg-4 -->                           
   </div><!-- row -->
 </div><!-- container -->
