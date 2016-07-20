@@ -28,13 +28,13 @@ Rails.application.routes.draw do
   # get 'company/results', to: 'company#results'
   resources :company
 
-  # Complain controller routes
+  # Complaint controller routes
   get 'complaints', to: 'complaints#index'
   get 'complaints/data'
   put 'complaints', to: 'complaints#upvote'
   get 'complaint/new', to: 'complaints#new'
   post 'complaint/new', to: 'complaints#create'
-  get 'complaint/:id/edit', to: 'complaints#edit'
+  get 'complaint/:id/edit', to: 'complaints#edit', as: 'complaint_edit'
   put 'complaint/:id/edit', to: 'complaints#update'
   delete 'complaint/:complaint_id', to: 'complaints#destroy', as: 'complaint_delete'
   # get 'complaint/:id', to: 'complaints#show'

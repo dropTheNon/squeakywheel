@@ -2,10 +2,7 @@
   <h1><%= @current_user.name %>'s Profile</h1>
   <p><%= @current_user.email %></p>
   <%= cl_image_tag(@current_user.screenshot, :height=>300, :crop=>"scale") %>
-  <a <%= link_to('Edit Profile', profile_edit_path(@current_user), class: 'btn btn-primary') %>
-      </a> 
-      <br>
-      <br>
+  <a <%= link_to('Edit Profile', profile_edit_path(@current_user), class: 'btn btn-primary') %></a> 
   <div class="panel-group" id="accordion">
     <% @user_complaint.each do |complaint| %>
     <div id='<%= complaint.id %>' class="panel panel-default">
@@ -14,10 +11,13 @@
         <h4 class="panel-title">
 
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= complaint.id %>"><strong><%= complaint.title.upcase %> </strong>
+        <%= link_to "Edit Complaint", complaint_edit_path(complaint.id), class: 'btn btn-primary delete-btn' %>
         <%= link_to "Delete Complaint", complaint_delete_path(complaint.id), method: :delete, class: 'btn btn-danger delete-btn' %>
+        
         <i class="fa fa-thumbs-o-up fa-2x votecount"> +<%= complaint.vote_count %></i>
           
         <br>
+
         </a>
         </h4>
       </div>

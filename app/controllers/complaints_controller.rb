@@ -69,7 +69,7 @@ class ComplaintsController < ApplicationController
   def destroy
     UsersComplaints.where(complaint_id: params[:complaint_id]).destroy_all
     Complaint.destroy(params[:complaint_id])
-    redirect_to root_path
+    redirect_to profile_path(@current_user.id)
   end
 
   private 
