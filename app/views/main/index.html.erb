@@ -38,7 +38,7 @@
     <!-- ==== SCRIPT CALLING D3 ==== -->
     <script src="//d3js.org/d3.v4.min.js"></script>
     <!-- ==== SVG ELEMENT FOR D3 VISUALIZATION ==== -->
-    <svg class="svg" width="500" height="300"></svg>
+    <svg class="svg"></svg>
     <!-- ==== BEGIN SCRIPT FOR D3 VISUALIZATION ==== -->
     <script>
       $.ajax({
@@ -57,16 +57,16 @@
 
         containers.append("rect")
           .attr("y", function(d, i) {
-            return i * 25;
+            return i * 31;
           })
           // .style("fill", "#1A732D")
           .style("width", function(d) { return d.vote_count * 100 + "px"; })
-          .style("height", 24 + "px")
+          .style("height", 30 + "px")
 
 
         containers.append("text")
           .attr("y", function(d, i) {
-            return (i * 25) + 15;
+            return (i * 31) + 17;
           })
           .style("fill", "#000")
           .text(function(d) { return d.title; })
