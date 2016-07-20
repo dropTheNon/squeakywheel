@@ -28,6 +28,7 @@
         </h4>
       </div>
       <div id="collapse<%= complaint.id %>" class="panel-collapse collapse in">
+        <h4><%= complaint.company.name %></h4>
         <div class="panel-body">Description: <%= complaint.description %>
           <br>    
           <%= cl_image_tag(complaint.screenshot, :width=>300, :crop=>"scale") %>
