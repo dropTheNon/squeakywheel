@@ -57,21 +57,21 @@
 
         containers.append("rect")
           .attr("y", function(d, i) {
-            return i * 21;
+            return i * 25;
           })
           // .style("fill", "#1A732D")
           .style("width", function(d) { return d.vote_count * 100 + "px"; })
-          .style("height", 20 + "px")
+          .style("height", 24 + "px")
 
 
         containers.append("text")
           .attr("y", function(d, i) {
-            return i * 21;
+            return (i * 25) + 15;
           })
-          .style("fill", "#fff")
-          .text(function(d) { return d.title; });
-          .text(function(d) { console.log(d.title); return d.title; });
-          
+          .style("fill", "#000")
+          .text(function(d) { return d.title; })
+          .text(function(d) { console.log(d.title); return d.title; 
+        });    
       };
 
     </script>
